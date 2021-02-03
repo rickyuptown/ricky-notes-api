@@ -12,7 +12,8 @@ export const main = handler(async (event, context) => {
       sk: uuid.v1(), // A unique uuid
       content: data.content, // Parsed from request body
       attachment: data.attachment, // Parsed from request body
-      createdAt: Date.now(), // Current Unix timestamp
+      createdAt: Date.now(), // Current Unix timestamp,
+      userId: event.requestContext.identity.cognitoIdentityId, // The id of the author
     },
   };
 
